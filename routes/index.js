@@ -1,7 +1,7 @@
 const constructorMethod = app => {
 
   app.get('/', (req, res) => {
-    res.send('Landing page not implemented yet.');
+    res.render('index', { title: 'Tight Knit Games'});
   });
 
 };
