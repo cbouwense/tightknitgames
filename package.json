@@ -1,0 +1,25 @@
+{
+  "name": "tightknitgames",
+  "version": "0.0.1",
+  "description": "Website hosting games made collaboratively by Christian Bouwense and Chris Kuras.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "author": "Christian Bouwense",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbouwense/tightknitgames.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cbouwense/tightknitgames/issues"
+  },
+  "homepage": "https://github.com/cbouwense/tightknitgames#readme"
+}
