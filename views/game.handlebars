@@ -1,34 +1,72 @@
-<!-- Things that are going to vary from game page to game page:
-     1) name
-     2) description
-     3) picture 1, 2, 3
-     4) picture caption 1, 2, 3
-     5) platform 1, 2, 3
-     6) platform link & text 1, 2, 3
-     7) comments
--->
 <header class="bd-header">
-  <div class="bd-header-titles">
-    <h1 class="title">
-      {{name}}
-    </h1>
-    <p class="subtitle is-4">
-      {{description}}
-    </p>
-    
+  <div class="bd-header-titles has-text-centered">
+    <h1 class="title is-1">{{name}}</h1>
+    <p class="subtitle is-4">{{description}}</p>
   </div>
 </header>
 
 <section id="game-screenshots" class="section">
   <div class="columns">
+    {{#each screenshots}}
     <div class="column">
-      <img src="{{image1URL}}">
+      <img src="{{ this.image_path }}">
+      <caption>{{ this.caption }}</caption>
     </div>
+    {{/each}}
+  </div>
+</section>
+
+<hr>
+
+<section id="game-downloads" class="section has-text-centered">
+  <header>
+    <h1 class="title is-1">Download</h1>
+  </header>
+
+  <div class="columns">
+    {{#each downloads}}
     <div class="column">
-      <img src="{{image2URL}}">
+      <h2 class="title is-2">
+        {{ this.os }}
+        <i class="{{ this.os_logo }}"></i>
+      </h2>
+      <a href="{{ this.path }}">
+        <p class="is-size-5">{{ this.link_text }}</p>
+      </a>
     </div>
-    <div class="column">
-      <img src="{{image3URL}}">
+    {{/each}}
+  </div>
+
+  <!-- TODO: donation slider thing -->
+  <div>
+
+  </div>
+</section>
+
+<hr>
+
+<section id="game-comments" class="section">
+  <header>
+    <h1 class="title is-1 has-text-centered">Comments</h1>
+  </header>
+
+  {{#each comments}}
+  <div class="media is-centered">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="{{this.user.image_path}}">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <!-- TODO: make the name a link to their user page? -->
+          <strong>{{this.user.name}}</strong> - {{this.rating}}/5
+          <br>
+          {{this.comment}}
+        </p>
+      </div>
     </div>
   </div>
+  {{/each}}
 </section>
