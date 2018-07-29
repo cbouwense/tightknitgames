@@ -19,7 +19,16 @@ router.get('/:name', async (req, res) => {
     console.log('GET /games/' + req.params.name);
     try {
         const game = await gamesData.getGameByName(req.params.name);
-        res.json(game);
+        
+        res.render('game', {
+            name: game.name,
+            description: game.description,
+            screenshots: game.screenshots,
+            downloads: game.downloads,
+            comments: game.comments
+        })
+
+        //res.json(game);
     } 
     catch (e) {
         res.status(404).json({ message: "Game not found" });
